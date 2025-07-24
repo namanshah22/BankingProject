@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 50px;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    display: inline-block;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 250px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+#successBox {
+    border: 2px solid #4caf50;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #e8f5e9;
+}
+#successBox h3 {
+    color: #2e7d32;
+}
+#successBox p {
+    font-size: 15px;
+    color: #333;
+}
+

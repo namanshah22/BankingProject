@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Transaction PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        #successBox {
+            display: none;
+            background-color: #e0ffe0;
+            border-left: 6px solid #4CAF50;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        #statusMessage {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Send PDF Statement to Email</h2>
+
+    <form id="emailForm">
+        <input type="email" id="emailInput" placeholder="Enter email" required><br>
+        <input type="text" id="accountInput" placeholder="Enter account number" required><br>
+        <button type="submit">Send PDF Statement</button>
+    </form>
+
+    <div id="successBox">
+        ✅ Transaction PDF sent successfully!<br>
+        <span id="sentEmailInfo"></span>
+    </div>
+
+    <p id="statusMessage"></p>
+
+    <script src="script2.js"></script>
+</body>
+</html>
+
