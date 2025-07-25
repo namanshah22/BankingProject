@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Djokovic Bank - Championship Banking</title>
+    <link rel="stylesheet" href="styles.css" />
+  
+</head>
+<script src="script.js"></script>
+<body>
+    <!-- 3D Page Transition Container -->
+    <div class="page-transition-container">
+        <div class="transition-overlay" id="transitionOverlay"></div>
+    </div>
+
+    <!-- Landing Page -->
+    <section id="landing" class="landing-page">
+        <!-- Enhanced 3D Background Elements -->
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+
+        <!-- 3D Geometric Shapes -->
+        <div class="sphere-3d"></div>
+        <div class="cube-3d">
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <div class="cube-face right"></div>
+            <div class="cube-face left"></div>
+            <div class="cube-face top"></div>
+            <div class="cube-face bottom"></div>
+        </div>
+        <div class="pyramid-3d">
+            <div class="pyramid-face base"></div>
+            <div class="pyramid-face side1"></div>
+        </div>
+
+        <!-- Landing Content -->
+        <div class="landing-content">
+            <h1 class="landing-title">Djokovic Bank</h1>
+            <p class="landing-subtitle">Experience the future of banking with championship-level service and innovation</p>
+            <button class="cta-button" onclick="scrollToHome()">Enter Banking Arena</button>
+        </div>
+    </section>
+
+    <!-- Home Section -->
+    <section id="home" class="page-section home-section active">
+        <div class="container">
+            <h2 class="section-title">Banking Excellence</h2>
+            <p class="section-subtitle">Experience championship-level banking with cutting-edge technology and personalized service</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(45deg, var(--purple-500), var(--purple-600));">🛡️</div>
+                    <h3 class="feature-title">Championship Security</h3>
+                    <p class="feature-description">Bank-grade security with biometric authentication and advanced encryption protocols</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(45deg, var(--pink-500), var(--pink-600));">⚡</div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-description">Instant transfers and real-time processing for all your banking needs</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(45deg, var(--blue-500), var(--blue-600));">📈</div>
+                    <h3 class="feature-title">Smart Analytics</h3>
+                    <p class="feature-description">AI-powered insights to help you make winning financial decisions</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(45deg, var(--green-500), var(--green-600));">🌍</div>
+                    <h3 class="feature-title">Global Access</h3>
+                    <p class="feature-description">Access your accounts from anywhere in the world, anytime</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(45deg, var(--gold-400), var(--gold-500));">🎯</div>
+                    <h3 class="feature-title">Goal Achievement</h3>
+                    <p class="feature-description">Set and achieve your financial goals with our smart planning tools</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: linear-gradient(45deg, #6366f1, #4f46e5);">💳</div>
+                    <h3 class="feature-title">Premium Cards</h3>
+                    <p class="feature-description">Exclusive credit and debit cards with championship rewards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login" class="page-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-card">
+                    <h2 class="form-title">Welcome Back</h2>
+                    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">Access your championship account</p>
+                    
+                    <div id="login-message" class="hidden"></div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">User ID</label>
+                        <input type="text" id="userId" class="form-input" placeholder="Enter your User ID" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="password" class="form-input" placeholder="Enter your Password" required>
+                    </div>
+                    
+                    <button type="button" class="form-button" onclick="handleLogin()">
+                        <span id="loginText">Access Account</span>
+                    </button>
+                    
+                    <div class="form-links">
+                        <a href="#" onclick="showSection('forgot-user')">Forgot User ID?</a>
+                        <a href="#" onclick="showSection('forgot-password')">Forgot Password?</a>
+                    </div>
+
+                    <!-- Demo Credentials Info -->
+                    <div style="margin-top: 2rem; padding: 1rem; background: rgba(168, 85, 247, 0.1); border-radius: 10px; border: 1px solid var(--purple-400);">
+                        <h4 style="color: var(--purple-400); margin-bottom: 0.5rem;">Demo Credentials:</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                            <strong>Regular User:</strong> user / password123<br>
+                            <strong>Admin:</strong> admin / admin123
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Payee Section -->
+    <section id="add-payee" class="page-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-card" style="max-width: 600px;">
+                    <h2 class="form-title">Add New Beneficiary</h2>
+                    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">Add a new payee to your account</p>
+                    
+                    <div id="beneficiary-message" class="hidden"></div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Beneficiary Name *</label>
+                        <input type="text" id="beneficiaryName" class="form-input" placeholder="Enter beneficiary name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Account Number *</label>
+                        <input type="text" id="beneficiaryAccount" class="form-input" placeholder="Enter account number" required maxlength="16">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Confirm Account Number *</label>
+                        <input type="text" id="confirmAccount" class="form-input" placeholder="Re-enter account number" required maxlength="16">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">IFSC Code *</label>
+                        <input type="text" id="ifscCode" class="form-input" placeholder="Enter IFSC code" required maxlength="11">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Nickname (Optional)</label>
+                        <input type="text" id="nickname" class="form-input" placeholder="Enter nickname" maxlength="20">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="checkbox" id="saveBeneficiary" checked style="width: 16px; height: 16px;">
+                            <span class="form-label" style="margin: 0;">Save as beneficiary</span>
+                        </label>
+                    </div>
+                    
+                    <button type="button" class="form-button" onclick="addBeneficiary()">Add Beneficiary</button>
+
+                    <!-- Existing Beneficiaries List -->
+                    <div id="beneficiaryListContainer" class="beneficiary-list" style="display: none;">
+                        <h3 style="color: var(--purple-400); margin-bottom: 1rem;">Existing Beneficiaries</h3>
+                        <div id="beneficiaryList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regular Dashboard Section -->
+    <section id="dashboard" class="page-section">
+        <div class="container">
+            <div class="dashboard">
+                <aside class="sidebar">
+                    <h3>🏆 Dashboard</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="#" class="active" onclick="showDashboardContent('account-details')">Account Details</a></li>
+                        <li><a href="#" onclick="showDashboardContent('account-summary')">Account Summary</a></li>
+                        <li><a href="#" onclick="showDashboardContent('funds-transfer')">Funds Transfer</a></li>
+                        <li><a href="#" onclick="showDashboardContent('account-statement')">Account Statement</a></li>
+                        <li><a href="#" onclick="showDashboardContent('change-password')">Security Settings</a></li>
+                        <li><a href="#" onclick="logout()" style="color: var(--red-400);">Logout</a></li>
+                    </ul>
+                </aside>
+                
+                <main class="main-content">
+                    <div id="account-details" class="dashboard-content active">
+                        <h2 class="card-title">Account Details</h2>
+                        <div class="account-cards">
+                            <div class="account-card">
+                                <div class="account-balance">₹25,847.50</div>
+                                <div class="account-type">Championship Savings</div>
+                                <div style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">****1234</div>
+                            </div>
+                            <div class="account-card">
+                                <div class="account-balance">₹5,230.00</div>
+                                <div class="account-type">Premium Current</div>
+                                <div style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">****5678</div>
+                            </div>
+                        </div>
+                        <div class="card" style="margin-top: 2rem;">
+                            <h3 style="color: var(--text-primary); margin-bottom: 1rem;">🔒 Security Notice</h3>
+                            <p style="color: var(--text-secondary); line-height: 1.6;">
+                                For your security, account numbers are displayed in masked format (****1234). During transfer confirmation, 
+                                full account numbers will be shown for verification. All transactions are processed immediately.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="account-summary" class="dashboard-content">
+                        <h2 class="card-title">Account Summary</h2>
+                        <div class="card">
+                            <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">Recent Transactions</h3>
+                            <div id="transactionTableContainer">
+                                <oj-table id="transactionTable"
+                                    data="[[transactionDataSource]]"
+                                    columns='[
+                                        {"headerText": "Date", "field": "transDate"},
+                                        {"headerText": "Description", "field": "remarks"},
+                                        {"headerText": "Amount", "field": "transAmount"},
+                                        {"headerText": "Balance", "field": "remBalance"}
+                                    ]'
+                                    style="width:100%;"></oj-table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="funds-transfer" class="dashboard-content">
+                        <h2 class="card-title">Funds Transfer</h2>
+                        <div class="card">
+                            <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">Quick Transfer</h3>
+                            <form>
+                                <div class="form-group">
+                                    <label class="form-label">From Account</label>
+                                    <select class="form-input">
+                                        <option>Championship Savings - ****1234</option>
+                                        <option>Premium Current - ****5678</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">To Account</label>
+                                    <div style="display: flex; gap: 0.5rem;">
+                                        <select id="dashboardToAccount" class="form-input" style="flex: 1;">
+                                            <option value="">-- Select Beneficiary --</option>
+                                        </select>
+                                        <button type="button" onclick="showSection('add-payee')" style="padding: 0.75rem 1rem; background: linear-gradient(45deg, var(--purple-500), var(--pink-500)); color: white; border: none; border-radius: 8px; cursor: pointer; white-space: nowrap;">Add New</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Amount</label>
+                                    <input type="number" class="form-input" placeholder="Enter Amount" min="1" max="100000">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Transaction Date</label>
+                                    <input type="date" class="form-input" readonly style="background: var(--input-bg); cursor: not-allowed;">
+                                    <small style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.5rem; display: block;">
+                                        🔒 Immediate processing on today's date for security
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Remarks</label>
+                                    <input type="text" class="form-input" placeholder="Enter Remarks" maxlength="100">
+                                </div>
+                                <button type="button" class="form-button" onclick="showTransferSuccess()">Transfer Now</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="account-statement" class="dashboard-content">
+                        <h2 class="card-title">Account Statement</h2>
+                        <div class="card">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                                <div class="form-group">
+                                    <label class="form-label">From Date</label>
+                                    <input type="date" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">To Date</label>
+                                    <input type="date" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">&nbsp;</label>
+                                    <button type="button" class="form-button">Generate Statement</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="change-password" class="dashboard-content">
+                        <h2 class="card-title">Security Settings</h2>
+                        <div class="card">
+                            <form>
+                                <div class="form-group">
+                                    <label class="form-label">Current Password</label>
+                                    <input type="password" class="form-input" placeholder="Enter Current Password">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">New Password</label>
+                                    <input type="password" class="form-input" placeholder="Enter New Password">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Confirm New Password</label>
+                                    <input type="password" class="form-input" placeholder="Confirm New Password">
+                                </div>
+                                <button type="button" class="form-button">Update Password</button>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard Section -->
+    <section id="admin-dashboard" class="page-section">
+        <div class="container">
+            <div class="dashboard">
+                <aside class="sidebar">
+                    <h3>👑 Admin Panel</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="#" class="active" onclick="showAdminContent('admin-overview')">Overview</a></li>
+                        <li><a href="#" onclick="showAdminContent('user-management')">User Management</a></li>
+                        <li><a href="#" onclick="showSection('customer-management')">Customer Management</a></li>
+                        <li><a href="#" onclick="showAdminContent('transaction-monitoring')">Transactions</a></li>
+                        <li><a href="#" onclick="showAdminContent('system-settings')">System Settings</a></li>
+                        <li><a href="#" onclick="showAdminContent('audit-logs')">Audit Logs</a></li>
+                        <li><a href="#" onclick="logout()" style="color: var(--red-400);">Logout</a></li>
+                    </ul>
+                </aside>
+                
+                <main class="main-content">
+                    <div id="admin-overview" class="dashboard-content active">
+                        <h2 class="card-title">Admin Overview</h2>
+                        <div class="account-cards">
+                            <div class="account-card" style="background: linear-gradient(135deg, var(--blue-500), var(--purple-500));">
+                                <div class="account-balance">1,247</div>
+                                <div class="account-type">Total Users</div>
+                            </div>
+                            <div class="account-card" style="background: linear-gradient(135deg, var(--green-500), var(--blue-500));">
+                                <div class="account-balance">₹2.4M</div>
+                                <div class="account-type">Total Deposits</div>
+                            </div>
+                            <div class="account-card" style="background: linear-gradient(135deg, var(--gold-400), var(--pink-500));">
+                                <div class="account-balance">89</div>
+                                <div class="account-type">Active Sessions</div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">System Status</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                                <div style="padding: 1rem; background: rgba(34, 197, 94, 0.2); border-radius: 10px; border: 1px solid var(--green-400);">
+                                    <h4 style="color: var(--green-400);">Core Banking</h4>
+                                    <p style="color: var(--text-secondary);">Online</p>
+                                </div>
+                                <div style="padding: 1rem; background: rgba(34, 197, 94, 0.2); border-radius: 10px; border: 1px solid var(--green-400);">
+                                    <h4 style="color: var(--green-400);">Payment Gateway</h4>
+                                    <p style="color: var(--text-secondary);">Online</p>
+                                </div>
+                                <div style="padding: 1rem; background: rgba(251, 191, 36, 0.2); border-radius: 10px; border: 1px solid var(--gold-400);">
+                                    <h4 style="color: var(--gold-400);">Backup System</h4>
+                                    <p style="color: var(--text-secondary);">Maintenance</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="user-management" class="dashboard-content">
+                        <h2 class="card-title">User Management</h2>
+                        <div class="card">
+                            <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">Recent Users</h3>
+                            <table class="transaction-table">
+                                <thead>
+                                    <tr>
+                                        <th>User ID</th>
+                                        <th>Name</th>
+                                        <th>Account Type</th>
+                                        <th>Status</th>
+                                        <th>Last Login</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>USR001</td>
+                                        <td>John Doe</td>
+                                        <td>Premium</td>
+                                        <td style="color: var(--green-400);">Active</td>
+                                        <td>2024-01-15 14:30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>USR002</td>
+                                        <td>Jane Smith</td>
+                                        <td>Standard</td>
+                                        <td style="color: var(--green-400);">Active</td>
+                                        <td>2024-01-15 12:15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>USR003</td>
+                                        <td>Mike Johnson</td>
+                                        <td>Premium</td>
+                                        <td style="color: var(--red-400);">Suspended</td>
+                                        <td>2024-01-14 09:45</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="transaction-monitoring" class="dashboard-content">
+                        <h2 class="card-title">Transaction Monitoring</h2>
+                        <div class="card">
+                            <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">High-Value Transactions</h3>
+                            <table class="transaction-table">
+                                <thead>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <th>From Account</th>
+                                        <th>To Account</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>TXN001</td>
+                                        <td>****1234</td>
+                                        <td>****5678</td>
+                                        <td>₹50,000</td>
+                                        <td style="color: var(--green-400);">Completed</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TXN002</td>
+                                        <td>****9876</td>
+                                        <td>****4321</td>
+                                        <td>₹75,000</td>
+                                        <td style="color: var(--gold-400);">Pending</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="system-settings" class="dashboard-content">
+                        <h2 class="card-title">System Settings</h2>
+                        <div class="card">
+                            <form>
+                                <div class="form-group">
+                                    <label class="form-label">Daily Transfer Limit</label>
+                                    <input type="number" class="form-input" value="100000" placeholder="Enter limit">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Session Timeout (minutes)</label>
+                                    <input type="number" class="form-input" value="30" placeholder="Enter timeout">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Maintenance Mode</label>
+                                    <select class="form-input">
+                                        <option>Disabled</option>
+                                        <option>Enabled</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="form-button">Update Settings</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="audit-logs" class="dashboard-content">
+                        <h2 class="card-title">Audit Logs</h2>
+                        <div class="card">
+                            <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">Recent Activities</h3>
+                            <table class="transaction-table">
+                                <thead>
+                                    <tr>
+                                        <th>Timestamp</th>
+                                        <th>User</th>
+                                        <th>Action</th>
+                                        <th>IP Address</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2024-01-15 14:30:25</td>
+                                        <td>admin</td>
+                                        <td>Login</td>
+                                        <td>192.168.1.100</td>
+                                        <td style="color: var(--green-400);">Success</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2024-01-15 14:25:10</td>
+                                        <td>user123</td>
+                                        <td>Fund Transfer</td>
+                                        <td>192.168.1.101</td>
+                                        <td style="color: var(--green-400);">Success</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2024-01-15 14:20:05</td>
+                                        <td>unknown</td>
+                                        <td>Failed Login</td>
+                                        <td>192.168.1.102</td>
+                                        <td style="color: var(--red-400);">Failed</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Management Section -->
+<section id="customer-management" class="page-section">
+    <div class="container">
+      <div class="form-card" style="max-width: 800px;">
+        <h2 class="form-title">Customer Management</h2>
+        
+        <div class="form-group">
+          <label class="form-label">Aadhaar</label>
+          <input type="text" id="aadhaar" class="form-input" placeholder="Enter Aadhaar">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Name</label>
+          <input type="text" id="customerName" class="form-input" placeholder="Enter Full Name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" id="email" class="form-input" placeholder="Enter Email">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Mobile</label>
+          <input type="text" id="mobile" class="form-input" placeholder="Enter Mobile">
+        </div>
+        <input type="password" id="customerPassword" class="form-input" placeholder="Enter Password">
+        <button class="form-button" onclick="addCustomer()">Add / Update Customer</button>
+        <button class="form-button" style="background: var(--red-500);" onclick="deleteCustomer()">Delete Customer</button>
+  
+        <hr style="margin: 2rem 0;" />
+  
+        <button class="form-button" onclick="loadCustomerTable()">Get All Customers</button>
+        <div id="customerTableContainer">
+          <oj-table id="customerTable"
+            data="[[customerDataSource]]"
+            columns='[
+              {"headerText": "Aadhaar", "field": "aadhaar"},
+              {"headerText": "Name", "field": "customerName"},
+              {"headerText": "Email", "field": "email"},
+              {"headerText": "Mobile", "field": "mobile"}
+            ]'
+            style="width:100%;"></oj-table>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+    <!-- Transfer Section -->
+    <section id="transfer" class="page-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-card" style="max-width: 600px;">
+                    <h2 class="form-title">Fund Transfer</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Transfer Type</label>
+                            <select class="form-input">
+                                <option>IMPS - Immediate Payment</option>
+                                <option>NEFT - National Electronic Fund Transfer</option>
+                                <option>RTGS - Real Time Gross Settlement</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">From Account</label>
+                            <select class="form-input">
+                                <option>Championship Savings - ****1234</option>
+                                <option>Premium Current - ****5678</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">To Account</label>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <select id="transferToAccount" class="form-input" style="flex: 1;">
+                                    <option value="">-- Select Beneficiary --</option>
+                                </select>
+                                <button type="button" onclick="showSection('add-payee')" style="padding: 0.75rem 1rem; background: linear-gradient(45deg, var(--purple-500), var(--pink-500)); color: white; border: none; border-radius: 8px; cursor: pointer; white-space: nowrap;">Add New</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Amount</label>
+                            <input type="number" class="form-input" placeholder="Enter Transfer Amount" min="1" max="100000">
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label class="form-label">Transaction Date</label>
+                            <input type="date" class="form-input" readonly style="background: var(--input-bg); cursor: not-allowed;">
+                            <small style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.5rem; display: block;">
+                                🔒 For security, transactions are processed immediately on today's date only
+                            </small>
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label class="form-label">Remarks</label>
+                            <input type="text" class="form-input" placeholder="Enter Transaction Remarks" maxlength="100">
+                        </div>
+                    </div>
+                    <button type="button" class="form-button" onclick="showTransferSuccess()" style="margin-top: 1rem;">Continue Transfer</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Settings Section -->
+    <section id="settings" class="page-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-card">
+                    <h2 class="form-title">Settings</h2>
+                    <div class="card">
+                        <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">Account Preferences</h3>
+                        <div class="form-group">
+                            <label class="form-label">Language</label>
+                            <select class="form-input">
+                                <option>English</option>
+                                <option>Spanish</option>
+                                <option>French</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Currency</label>
+                            <select class="form-input">
+                                <option>USD - US Dollar</option>
+                                <option>EUR - Euro</option>
+                                <option>GBP - British Pound</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Notifications</label>
+                            <select class="form-input">
+                                <option>All Notifications</option>
+                                <option>Important Only</option>
+                                <option>Disabled</option>
+                            </select>
+                        </div>
+                        <button type="button" class="form-button">Save Settings</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixed Apple Dock Navigation -->
+    <nav class="apple-dock">
+        <div class="dock-items">
+            <div class="dock-item" onclick="showSection('home')">
+                <div class="dock-icon">🏠</div>
+                <div class="dock-label">Home</div>
+            </div>
+            <div class="dock-item" onclick="showSection('login')">
+                <div class="dock-icon">👤</div>
+                <div class="dock-label">Login</div>
+            </div>
+            <div class="dock-item" onclick="checkAuthAndShowDashboard()">
+                <div class="dock-icon">💳</div>
+                <div class="dock-label">Dashboard</div>
+            </div>
+            <div class="dock-item" onclick="checkAuthAndShowSection('add-payee')">
+                <div class="dock-icon">➕</div>
+                <div class="dock-label">Add Payee</div>
+            </div>
+            <div class="dock-item" onclick="checkAuthAndShowSection('transfer')">
+                <div class="dock-icon">💸</div>
+                <div class="dock-label">Transfer</div>
+            </div>
+            <div class="dock-item" onclick="showSection('settings')">
+                <div class="dock-icon">⚙️</div>
+                <div class="dock-label">Settings</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="success-modal">
+        <div class="success-content">
+            <h2 class="form-title" style="color: var(--green-400);">🎉 Success!</h2>
+            <div id="successMessage" class="message success"></div>
+            <button class="form-button" onclick="hideSuccessModal()">Continue</button>
+        </div>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbotContainer" class="chatbot-container hidden">
+        <div class="chatbot-header">
+            <span>🤖 Novak Assistant</span>
+            <button onclick="toggleChatbot()">✖</button>
+        </div>
+        <div id="chatbotMessages" class="chatbot-messages"></div>
+        <div class="chatbot-input">
+            <input id="chatbotInput" type="text" placeholder="Type your message..." onkeypress="if(event.key==='Enter'){sendChatMessage();}">
+            <button onclick="sendChatMessage()">Send</button>
+        </div>
+    </div>
+
+    <div id="dashboardQuote" class="dashboard-quote"></div>
+
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbotToggle" class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+
+    <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">🌞</button>
+</body>
+</html>

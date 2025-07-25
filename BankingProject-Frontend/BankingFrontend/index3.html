@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Banking OJET Demo</title>
+  <link rel="stylesheet" href="https://static.oracle.com/cdn/jet/v14.1.0/default/css/alta/oj-alta-min.css" />
+  <script src="https://static.oracle.com/cdn/jet/v14.1.0/3rdparty/require/require.js"></script>
+  <script src="https://static.oracle.com/cdn/jet/v14.1.0/default/js/ojbundle.js"></script>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8fafc; }
+    .container { max-width: 600px; margin: 2rem auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #0001; padding: 2rem; }
+    .section { margin-bottom: 2rem; }
+    label { display: block; margin-bottom: 0.2rem; }
+    input, select { width: 100%; margin-bottom: 1rem; padding: 0.5rem; }
+    button { padding: 0.5rem 1.5rem; border-radius: 6px; border: none; background: #6366f1; color: #fff; font-weight: 600; }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.5rem; }
+    .error { color: #dc2626; }
+    .success { color: #16a34a; }
+  </style>
+</head>
+<body>
+  <div class="container" id="mainContent">
+    <!-- Login Section -->
+    <div data-bind="ifnot: isLoggedIn">
+      <h2>Login</h2>
+      <div data-bind="if: loginError" class="error" data-bind="text: loginError"></div>
+      <label>Aadhaar</label>
+      <input data-bind="value: loginAadhaar" placeholder="Enter Aadhaar" />
+      <label>Password</label>
+      <input type="password" data-bind="value: loginPassword" placeholder="Enter Password" />
+      <button data-bind="click: login">Login</button>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div data-bind="if: isLoggedIn">
+      <h2>Welcome, <span data-bind="text: currentUser() && currentUser().customerName"></span>!</h2>
+      <button data-bind="click: logout" style="float:right;">Logout</button>
+      <div class="section">
+        <h3>Your Payees</h3>
+        <ul data-bind="foreach: beneficiaries">
+          <li>
+            <span data-bind="text: payeeName"></span> (Acc: <span data-bind="text: payeeAccNo"></span>)
+            <button data-bind="click: $parent.deletePayee">Delete</button>
+          </li>
+        </ul>
+        <div data-bind="if: beneficiaries().length === 0">No payees found.</div>
+      </div>
+      <div class="section">
+        <h3>Add Payee</h3>
+        <label>Name</label>
+        <input data-bind="value: newPayeeName" />
+        <label>Account Number</label>
+        <input data-bind="value: newPayeeAccNo" />
+        <button data-bind="click: addPayee">Add</button>
+        <div data-bind="if: payeeMessage" class="success" data-bind="text: payeeMessage"></div>
+      </div>
+      <div class="section">
+        <h3>Transfer Funds</h3>
+        <label>To Payee</label>
+        <select data-bind="options: beneficiaries, optionsText: 'payeeName', optionsValue: 'payeeAccNo', value: transferToAcc"></select>
+        <label>Amount</label>
+        <input type="number" data-bind="value: transferAmount" />
+        <label>Remarks</label>
+        <input data-bind="value: transferRemarks" />
+        <button data-bind="click: transferFunds">Transfer</button>
+        <div data-bind="if: transferMessage" class="success" data-bind="text: transferMessage"></div>
+      </div>
+      <div class="section">
+        <h3>Transaction History</h3>
+        <ul data-bind="foreach: transactions">
+          <li>
+            <span data-bind="text: transDate"></span>:
+            <span data-bind="text: transAmount"></span> to <span data-bind="text: destAccNo"></span>
+            (<span data-bind="text: remarks"></span>)
+          </li>
+        </ul>
+        <div data-bind="if: transactions().length === 0">No transactions found.</div>
+      </div>
+    </div>
+  </div>
+  <script src="script4.js"></script>
+</body>
+</html> 
