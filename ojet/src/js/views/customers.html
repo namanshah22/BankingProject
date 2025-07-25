@@ -1,0 +1,34 @@
+<!--
+ Copyright (c) 2014, 2025, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<!-- customers.html -->
+<div class="center-container">
+  <div class="oj-flex oj-sm-padding-4x">
+    <div class="oj-panel oj-sm-12 oj-md-10 oj-lg-8 oj-xl-8 oj-flex-item">
+      <h2 class="oj-sm-margin-2x-bottom">Customer List</h2>
+      <oj-table
+        id="customerTable"
+        aria-label="Customer Table"
+        data="[[customerDataProvider]]"
+        columns='[
+          {"headerText": "Name", "field": "name"},
+          {"headerText": "Email", "field": "email"},
+          {"headerText": "Phone", "field": "phone"},
+          {"headerText": "Address", "field": "city"},
+          {"headerText": "Gender", "field": "gender"},
+          {"headerText": "DOB", "field": "dob"},
+          {"headerText": "Occupation", "field": "occupation"},
+          {"headerText": "PAN", "field": "pan"}
+        ]'
+        display="grid"
+        class="oj-sm-width-full"
+        horizontal-grid-visible="enabled"
+        vertical-grid-visible="enabled"
+        selection-mode='{"row": "single"}'>
+      </oj-table>
+    </div>
+  </div>
+</div>
+

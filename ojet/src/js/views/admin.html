@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login - Banking Dashboard</title>
+  <link rel="stylesheet" href="css/admin.css" />
+  <script src="https://static.oracle.com/cdn/jet/18.0.0/default/js/libs/require/require.js"></script>
+  <script>
+    require.config({
+      baseUrl: "js",
+      paths: {
+        knockout: "libs/knockout/knockout-3.5.1",
+        ojs: "libs/oj/v18.0.0/min",
+        ojL10n: "libs/oj/v18.0.0/ojL10n",
+        ojtranslations: "libs/oj/v18.0.0/resources",
+        text: "libs/require/text",
+        signals: "libs/js-signals/signals",
+        customElements: "libs/webcomponents/custom-elements.min",
+        ojdnd: "libs/dnd-polyfill/dnd-polyfill-1.0.2.min",
+        touchr: "libs/touchr/touchr",
+        jquery: "libs/jquery/jquery-3.6.0.min",
+        oj: "libs/oj"
+  
+      },
+      config: {
+        ojL10n: {
+          merge: {
+            "ojtranslations/nls/ojtranslations": "resources/nls/ojtranslations"
+          }
+        }
+      }
+    });
+    require(["admin", "ojs/ojbootstrap"], function(viewModel, Bootstrap) {
+      Bootstrap.whenDocumentReady().then(function() {
+        ko.applyBindings(viewModel);
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="login-container" data-bind="visible: !loggedIn()">
+    <h2>Admin Login</h2>
+    <input type="text" placeholder="Username" data-bind="value: loginUsername" />
+    <input type="password" placeholder="Password" data-bind="value: loginPassword" />
+    <button data-bind="click: login">Login</button>
+  </div>
+
+  <div class="dashboard-container" data-bind="visible: loggedIn">
+    <h2>Admin Dashboard</h2>
+    <p>Total Customers: <span data-bind="text: totalCustomers"></span></p>
+
+    <div class="form-grid">
+      <input placeholder="Aadhaar" data-bind="value: aadhaar" />
+      <input placeholder="Name" data-bind="value: name" />
+      <input placeholder="Email" data-bind="value: email" />
+      <input placeholder="Mobile" data-bind="value: mobile" />
+      <button data-bind="click: addOrUpdateCustomer">Add / Update</button>
+    </div>
+
+    <oj-button id="getCustomersBtn" on-oj-action="[[getCustomers]]">
+      Get All Customers
+    </oj-button>
+    
+    <!-- Customer Table -->
+    <oj-table data="[[customerProvider]]"
+              columns='[
+                {"headerText": "Aadhaar", "field": "aadhaar"},
+                {"headerText": "Name", "field": "name"},
+                {"headerText": "Email", "field": "email"},
+                {"headerText": "Mobile", "field": "mobile"}
+              ]'
+              selection-mode='{"row": "single"}'
+              on-oj-table-selection-changed="[[selectRow]]">
+    </oj-table>
+
+    <button data-bind="click: deleteCustomer">Delete Selected</button>
+    <button data-bind="click: logout">Logout</button>
+  </div>
+</body>
+</html>
