@@ -1,0 +1,24 @@
+<div>
+  <h2>Payees</h2>
+  <oj-button on-oj-action="[[fetchPayees]]">Refresh</oj-button>
+  <oj-table data="[[payees]]" selection-mode.row="single">
+    <oj-table-column header-text="ID" data="id"></oj-table-column>
+    <oj-table-column header-text="Name" data="name"></oj-table-column>
+    <oj-table-column header-text="Account No" data="accNo"></oj-table-column>
+    <oj-table-column header-text="Actions">
+      <template slot-scope="row">
+        <oj-button chroming="borderless" on-oj-action="[[() => $parent.deletePayee(row.data)]]">Delete</oj-button>
+      </template>
+    </oj-table-column>
+  </oj-table>
+  <div>
+    <h3>Add Payee</h3>
+    <oj-form-layout>
+      <oj-input-text id="name" label-hint="Name" value="[[newPayeeName]]"></oj-input-text>
+      <oj-input-text id="accNo" label-hint="Account No" value="[[newPayeeAccNo]]"></oj-input-text>
+      <oj-button on-oj-action="[[addPayeeHandler]]">Add</oj-button>
+    </oj-form-layout>
+  </div>
+  <oj-progress-bar value="-1" class="oj-sm-margin-2x" visible="[[loading]]"></oj-progress-bar>
+  <div class="oj-sm-text-color-danger" data-bind="text: error"></div>
+</div> 
